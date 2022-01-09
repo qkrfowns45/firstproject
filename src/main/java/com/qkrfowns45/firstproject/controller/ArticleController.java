@@ -38,7 +38,7 @@ public class ArticleController {
         //2.Repository에게 Entity를 DB안에 저장
         Article saved = articleRepository.save(article);
         log.info(saved.toString());
-        return "";
+        return "redirect:/articles/" + saved.getId();
     }
 
     //@pathvariable을 해야 가져올수 있다.

@@ -11,10 +11,12 @@
     {{#articleList}}
         <tr>
             <td>{{id}}</td>
-            <td>{{title}}</td>
+            <td><a href="/articles/{{id}}">{{title}}</a></td>
             <td>{{content}}</td>
         </tr>
     {{/articleList}}
     </tbody>
 </table>
+
+<a href="/articles/new">작성하기</a>
 {{>layouts/footer}}
