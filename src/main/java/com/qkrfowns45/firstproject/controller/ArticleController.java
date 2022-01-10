@@ -64,7 +64,20 @@ public class ArticleController {
         //2.가져온 Article 묶음을 뷰로 전달
         model.addAttribute("articleList",articleEntityList);
 
-        //3.뷰 페이지 설정정
+        //3.뷰 페이지 설정
         return "articles/index";
+    }
+
+    //중괄호는 하나를 써야한다!(주의)
+    @GetMapping("/articles/{id}/edit")
+    public String edit(@PathVariable Long id, Model model){
+        //수정할 데이터를 가져오기
+        Article articleEntity = articleRepository.findById(id).orElse(null);
+
+        //모델에 데이터 등록
+        model.addAttribute("article",articleEntity);
+
+        //뷰 페이지 설정
+        return "articles/edit";
     }
 }
