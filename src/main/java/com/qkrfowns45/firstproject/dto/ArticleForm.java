@@ -11,11 +11,11 @@ public class ArticleForm {
 
     private String title;
     private String content;
-
+    private Long id;
 
     public Article toEntity() {
 
-        return new Article(null,title,content);
+        return new Article(id,title,content);
     }
 }
 
