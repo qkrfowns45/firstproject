@@ -9,9 +9,9 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ArticleForm {
 
+    private Long id;
     private String title;
     private String content;
-    private Long id;
 
     public Article toEntity() {
 
