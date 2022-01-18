@@ -1,0 +1,27 @@
+package com.qkrfowns45.firstproject.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+public class Comment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToMany //해당 댓글 엔티티 여러개가, 하나의 Article에 관리된다.
+    @JoinColumn(name = "article_id") //"articleid" 컬럼에 Articl의 대표값을 저장!
+    private Article article;
+
+    private String nickname;
+
+    private String body;
+}
