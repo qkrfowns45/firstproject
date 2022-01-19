@@ -17,11 +17,13 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany //해당 댓글 엔티티 여러개가, 하나의 Article에 관리된다.
+    @ManyToOne //해당 댓글 엔티티 여러개가, 하나의 Article에 관리된다.
     @JoinColumn(name = "article_id") //"articleid" 컬럼에 Articl의 대표값을 저장!
     private Article article;
 
+    @Column
     private String nickname;
 
+    @Column
     private String body;
 }
