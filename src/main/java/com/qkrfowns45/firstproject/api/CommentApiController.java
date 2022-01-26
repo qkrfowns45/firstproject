@@ -6,9 +6,7 @@ import com.qkrfowns45.firstproject.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,10 +16,10 @@ public class CommentApiController {
     private CommentService commentService;
 
     //댓글 목록 조회
-    @GetMapping("/api/articles/4/comments")
-    public ResponseEntity<List<CommentDto>> comments(@PathVariable Long artricleId){
+    @GetMapping("/api/articles/{articleId}/comments")
+    public ResponseEntity<List<CommentDto>> comments(@PathVariable Long articleId){
         //서비스에게 위임
-        List<CommentDto> dtos = commentService.comment(artricleId);
+        List<CommentDto> dtos = commentService.comment(articleId);
 
         //결과 응답
         return ResponseEntity.status(HttpStatus.OK).body(dtos);
@@ -29,6 +27,16 @@ public class CommentApiController {
 
 
     //댓글 생성
+    @PostMapping("/api/articles/{articleId}/comments")
+    public ResponseEntity<CommentDto> create(@PathVariable Long articleId, @RequestBody CommentDto dto){
+
+        //서비스에게 위임
+        CommentDto createDto = commentService.create(articleId,dto);
+
+        //결과반환
+        return ResponseEntity.status(HttpStatus.OK).body(createDto);
+
+    }
 
     //댓글 수정
 
