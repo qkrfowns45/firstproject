@@ -41,8 +41,8 @@
                     </div>
 
                     <!--히든 인풋 -->
-                    <input type="hidden" id = "new-comment-id">
-                    <input type="hidden" id = "new-comment-article-id">
+                    <input type="hidden" id = "edit-comment-id">
+                    <input type="hidden" id = "edit-comment-article-id">
 
 
                     <!--전송 버튼-->
@@ -62,6 +62,21 @@
     //모달 이벤트 감지
     commentEditModal.addEventListener("show.bs.modal",function(event){
         console.log("모달이 열렸습니다.");
+
+        //트리거 버튼 선택
+        const triggerBtn = event.relatedTarget;
+
+        //데이터 가져오기
+        const id = triggerBtn.getAttribute("data-bs-id");
+        const nickname = triggerBtn.getAttribute("data-bs-nickname");
+        const body = triggerBtn.getAttribute("data-bs-body");
+        const articleId = triggerBtn.getAttribute("data-bs-articleId");
+
+        //데이터를 반영
+        document.querySelector("#edit-comment-nickname").value = nickname;
+        document.querySelector("#edit-comment-body").value = body;
+        document.querySelector("#edit-comment-id").value = id;
+        document.querySelector("#edit-comment-article-id").value = articleId;
     });
 }
 </script>
