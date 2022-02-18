@@ -10,6 +10,9 @@
                         data-bs-article-id="{{articleId}}">
                     수정
                 </button>
+
+                <!--댓글 삭제 버튼튼 -->
+               <button type="button" class="btn btn-sm btn-outline-danger comment-delete-btn">삭제</button>
             </div>
             <div class="card-body">
                 {{body}}
@@ -114,5 +117,20 @@
             window.location.reload();
         });
     })
+}
+</script>
+
+<!-- 댓글 삭제 -->
+<script>
+{
+    //삭제 버튼 선택 여러개 다 가져올수 있음
+    const commentDeleteBtns = document.querySelectorAll(".comment-delete-btn");
+
+    //삭제 버튼 이벤트 처리
+    commentDeleteBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            console.log("삭제 버튼이 클릭되었습니다...!");
+        });
+    });
 }
 </script>
