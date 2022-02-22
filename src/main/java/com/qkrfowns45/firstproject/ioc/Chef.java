@@ -1,5 +1,8 @@
 package com.qkrfowns45.firstproject.ioc;
 
+import org.springframework.stereotype.Component;
+
+@Component //이걸 등록해야 한다. Ioc 컨테이너에 등록해야한다.
 public class Chef {
 
     private  IngreDientFactory ingreDientFactory;
