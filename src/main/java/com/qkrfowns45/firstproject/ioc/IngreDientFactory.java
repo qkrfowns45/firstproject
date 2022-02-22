@@ -12,6 +12,8 @@ public class IngreDientFactory {
                 return new Beef("한우 꽃등심");
             case "크리스피 치킨":
                 return new Chicken("국내산 10호 닭");
+            case "맛있는 전":
+                return new Chicken("밀가루와 도구들");
             default:
                 return null;
         }

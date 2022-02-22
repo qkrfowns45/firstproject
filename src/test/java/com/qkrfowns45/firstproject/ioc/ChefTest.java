@@ -74,4 +74,20 @@ class ChefTest {
         System.out.println(food);
     }
 
+    @Test
+    void 전_부치기(){
+        String menu = "맛있는 전";
+
+        //수행
+        String food = chef.cook(menu);
+
+        //예상
+        String expected = "밀가루와 도구들으로 만든 맛있는 전";
+
+        //검증
+        assertEquals(expected,food);
+        System.out.println(food);
+
+    }
+
 }
