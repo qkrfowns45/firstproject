@@ -1,5 +1,6 @@
 package com.qkrfowns45.firstproject.api;
 
+import com.qkrfowns45.firstproject.annotation.RunningTime;
 import com.qkrfowns45.firstproject.dto.CommentDto;
 import com.qkrfowns45.firstproject.entity.Comment;
 import com.qkrfowns45.firstproject.service.CommentService;
@@ -51,6 +52,7 @@ public class CommentApiController {
     }
 
     //댓글 삭제
+    @RunningTime
     @DeleteMapping("/api/comment/{id}")
     public ResponseEntity<CommentDto> delete(@PathVariable Long id){
 
