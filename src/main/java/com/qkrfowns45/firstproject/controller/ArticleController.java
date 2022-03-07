@@ -33,6 +33,11 @@ public class ArticleController {
         return "articles/new";
     }
 
+    @GetMapping("/")
+    public String index() {
+        return "articles";
+    }
+
     @PostMapping("/articles/create")
     public String createArticle(ArticleForm form){
 
