@@ -35,7 +35,7 @@ public class ArticleController {
 
     @GetMapping("/")
     public String index() {
-        return "articles";
+        return "articles/main";
     }
 
     @PostMapping("/articles/create")
